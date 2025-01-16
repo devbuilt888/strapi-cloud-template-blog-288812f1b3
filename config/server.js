@@ -7,4 +7,12 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
+  url: env('PUBLIC_URL', 'http://localhost:1337'),
+  admin: {
+    auth: {
+      secret: env('ADMIN_JWT_SECRET', 'someSecretKey'),
+    },
+  },
+  // Ensure the environment is set to development by default
+  environment: env('NODE_ENV', 'development'),
 });
